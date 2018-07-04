@@ -12,12 +12,14 @@ using namespace std;
 
 //有三根针A、B、C。A针上有N个盘子，大的在下，小的在上，要求把这N个盘子从A针移到C针，在移动过程中可以借助B针，每次只允许移动一个盘，且在移动过程中在三根针上都保持大盘在下，小盘在上。
 
+static int num = 0;
 
 void move(string src, string desc) {
     cout << src << " --> " << desc << endl;
 }
 
 void hanoi(int n, string src, string medium, string desc) {
+    num += 1;
     if (n == 1)
         move(src, desc);
     else{
@@ -34,5 +36,6 @@ int main(int argc, const char * argv[]) {
     cin >> n;
     
     hanoi(n, "A", "B", "C");
+    cout << "调用次数 = " << num << endl;
     return 0;
 }
